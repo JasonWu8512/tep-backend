@@ -13,13 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.urls import path, include
 
 from teprunner.views.case import CaseResultView
 
+from django.contrib import admin
+
 urlpatterns = [
     path('api/users/', include('user.urls')),
     path('api/teprunner/', include('teprunner.urls')),
+    url(r'^admin/', admin.site.urls)
 ]
 
 # Websocket路由
